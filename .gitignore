@@ -1,0 +1,20 @@
+# Logs
+*.log
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# Webpack output
+dist
+
+# Dependency directory
+node_modules
+
+# Visual Studio Code settings
+.vscode
+
+# TSD Typings
+typings

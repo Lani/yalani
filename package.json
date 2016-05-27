@@ -1,0 +1,48 @@
+{
+  "name": "yalani",
+  "version": "0.0.1",
+  "description": "Javascript app galore using Mithril, Horizon, Material Design Lite & Webpack 2",
+  "main": "app/index.js",
+  "config": {
+    "token_secret": "my_secret_key_override_in_.npmrc_and_add_to_.gitignore",
+    "dev_server_port": "3000"
+  },
+  "scripts": {
+    "start": "cross-env NODE_ENV=development webpack-dev-server --port $npm_package_config_dev_server_port --hot --inline --open --content-base dist/ --no-info --history-api-fallback --progress",
+    "clean": "rimraf dist",
+    "build:dev": "npm run clean && cross-env NODE_ENV=development webpack",
+    "build:prod": "npm run clean && npm run lint && cross-env NODE_ENV=production webpack",
+    "lint": "eslint app",
+    "analyze": "cross-env NODE_ENV=production webpack --json | webpack-bundle-size-analyzer"
+  },
+  "keywords": [
+    "Mithril",
+    "Horizon",
+    "Material",
+    "Design",
+    "Lite",
+    "Webpack",
+    "Javascript"
+  ],
+  "author": "Niklas Lagergren",
+  "license": "MIT",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.9.0",
+    "babel-eslint": "^6.0.4",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-lodash": "^3.1.4",
+    "babel-preset-es2015-native-modules": "^6.6.0",
+    "cross-env": "^1.0.8",
+    "eslint": "^2.10.2",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "html-webpack-plugin": "^2.17.0",
+    "html-webpack-template": "^5.0.0",
+    "standard": "^7.1.1",
+    "webpack": "^2.1.0-beta.7",
+    "webpack-bundle-size-analyzer": "^2.0.1",
+    "webpack-dev-server": "^2.1.0-beta.0"
+  }
+}
