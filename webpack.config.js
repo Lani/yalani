@@ -64,7 +64,7 @@ module.exports = {
         // template: 'node_modules/html-webpack-template/index.ejs',
 
         // Optional
-        appMountId: 'app',
+        appMountIds: ['header', 'main'],
         // baseHref: 'http://example.com/awesome',
         // devServer: 3001,
         filename: 'index.html', // path.resolve(outputPath, 'index.html'),
