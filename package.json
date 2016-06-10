@@ -50,6 +50,7 @@
     "webpack-dev-server": "^2.1.0-beta.0"
   },
   "dependencies": {
-    "mithril": "^0.2.5"
+    "mithril": "^0.2.5",
+    "polythene": "^0.2.29"
   }
 }
