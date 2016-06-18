@@ -1,14 +1,11 @@
-import m from 'mithril'
-import routes from 'routes'
-
 /* eslint-disable no-unused-vars */
-import 'polythene/theme/theme'
 import styles from 'styles'
+import mdl from 'material-design-lite/src/mdlComponentHandler'
 /* eslint-enable no-unused-vars */
 
-import button from 'polythene/button/button'
-
-m.route.mode = 'hash'
+import m from 'mithril'
+import routes from 'routes'
+import button from 'controls/button'
 
 const header = {
   controller: function () {},
@@ -16,14 +13,21 @@ const header = {
     return m('div', [
       routes.map((route) => m(button, {
         label: route.title,
-        url: {
-          href: route.path,
-          config: m.route
-        },
-        class: m.route() === route.path ? 'active' : ''
+        href: route.path,
+        ripple: true,
+        raised: true,
+        accent: m.route() === route.path
       })),
-      m(button, { label: 'Test', raised: true }) ]
-    )
+      m(button, { label: 'On click', raised: true, onclick: () => alert('hej') }),
+      m(button, { label: 'Disabled', raised: true, disabled: true }),
+      m(button, { label: 'Colored', raised: true, colored: true, ripple: true }),
+      m(button, { label: '+', raised: true, fab: true, ripple: true }),
+      m(button, { label: '+', raised: true, miniFab: true }),
+      m(button, { label: 'Flat accent', raised: false, colored: true, accent: true }),
+      m(button, { label: 'Flat primary', raised: false, primary: true }),
+      m(button, { label: 'Raised accent', accent: true, ripple: true }),
+      m(button, { label: 'Raised ripple', raised: true, ripple: true })
+    ])
   }
 }
 
@@ -31,7 +35,7 @@ if (module.hot) {
   module.hot.accept()
 }
 
-m.mount(document.getElementById('header'), {controller: header.controller, view: header.view})
+m.mount(document.getElementById('header'), header)
 
 m.route(document.getElementById('main'), '/',
   routes.reduce(function (prev, next) {
@@ -39,5 +43,4 @@ m.route(document.getElementById('main'), '/',
     return prev
   }, {})
 )
-
 console.log('App started.')
