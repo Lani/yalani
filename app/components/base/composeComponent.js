@@ -21,7 +21,7 @@ export default function (tag = 'div', ...funcs) {
       const passOptions = composeParts.call(composedParts, ctrl)
 
       passOptions.config = function (element, isInitialized, context) {
-        composedParts.configs.forEach((config) => config(...arguments))
+        composedParts.configs.forEach((config) => config(element, isInitialized, context))
         if (!isInitialized) window.componentHandler.upgradeElement(element)
       }
 

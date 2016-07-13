@@ -1,14 +1,13 @@
 /* eslint-disable no-unused-vars */
-//import buttonStyle from 'material-design-lite/src/button/_button.scss'
-//import buttonJs from 'material-design-lite/src/button/button'
-//import rippleStyle from 'material-design-lite/src/ripple/_ripple.scss'
-//import rippleJs from 'material-design-lite/src/ripple/ripple'
+import buttonStyle from 'material-design-lite/src/button/_button.scss'
+import buttonJs from 'material-design-lite/src/button/button'
+import rippleStyle from 'material-design-lite/src/ripple/_ripple.scss'
+import rippleJs from 'material-design-lite/src/ripple/ripple'
 /* eslint-enable no-unused-vars */
 
 import m from 'mithril'
 import cs from 'classnames'
 
-//import composeMdl from './composeMdlComponent'
 import composeMdl from './composeMdlComponent'
 
 const buttonPart = function ({ href, onclick, raised = true, ripple = true, colored, fab,
@@ -27,7 +26,7 @@ const buttonPart = function ({ href, onclick, raised = true, ripple = true, colo
     'mdl-js-ripple-effect': ripple
   }))
 
-  this.config.push(function (element, isInitialized, context) {
+  this.configs.push(function (element, isInitialized, context) {
     /* If the button triggers a route change, it will cause the whole DOM to be recreated.
       * The ripple animation will then be cut off. Setting retain=true prevents the
       * button from beeing recreated. I do not currently know if this has any drawbacks. */
@@ -37,6 +36,4 @@ const buttonPart = function ({ href, onclick, raised = true, ripple = true, colo
   return { ...rest, onclick: href ? clickHandler : onclick }
 }
 
-//export default composeMdl('button', buttonPart)
-export default function () {}
-
+export default composeMdl('button', buttonPart)

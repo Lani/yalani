@@ -1,5 +1,5 @@
 import composeComponent from 'components/base/composeComponent'
-import { layoutPart } from './layout'
+import layoutPart from './layoutPart'
 
 /**
  * The component part passed in 'func' is called with the options in the propery name
