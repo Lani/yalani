@@ -14,7 +14,6 @@ import layoutPart from './layoutPart'
  */
 const prefixPart = function (prefix, func) {
   return function prefixPartOptions (opts) {
-    console.log('prefixPart(opts)|', opts)
     const { [prefix]: extracted, ...rest } = opts
     if (extracted) {
       func.call(this, extracted)
@@ -24,7 +23,6 @@ const prefixPart = function (prefix, func) {
 }
 
 export default function (tag = 'div', ...funcs) {
-  console.log('funcs|', funcs)
   return composeComponent(tag, ...funcs,
     prefixPart('layout', layoutPart)
   )
