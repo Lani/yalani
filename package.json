@@ -8,12 +8,15 @@
     "dev_server_port": "3000"
   },
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack-dev-server --port $npm_package_config_dev_server_port --hot --inline --open --content-base dist/ --no-info --history-api-fallback --progress",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --port $npm_package_config_dev_server_port --hot --inline --content-base dist/ --no-info --history-api-fallback --progress",
     "clean": "rimraf dist",
     "build:dev": "npm run clean && cross-env NODE_ENV=development webpack",
     "build:prod": "npm run clean && npm run lint && cross-env NODE_ENV=production webpack",
     "lint": "eslint app",
-    "analyze": "cross-env NODE_ENV=production webpack --json | webpack-bundle-size-analyzer"
+    "analyze": "cross-env NODE_ENV=production webpack --json | webpack-bundle-size-analyzer",
+    "babel": "cross-env NODE_PATH=app babel-node --presets node6",
+    "mocha": "cross-env NODE_PATH=app mocha --require tools/babelHook app/**/*.test.js",
+    "test": "npm run mocha -s"
   },
   "keywords": [
     "Mithril",
@@ -30,22 +33,28 @@
     "node": ">=6.0.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.10.1",
     "babel-core": "^6.9.1",
     "babel-eslint": "^6.0.4",
     "babel-loader": "^6.2.4",
     "babel-plugin-lodash": "^3.2.0",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
     "babel-preset-es2015-native-modules": "^6.6.0",
+    "babel-preset-node6": "^11.0.0",
+    "babel-require": "^1.0.1",
+    "chai": "^3.5.0",
     "cross-env": "^1.0.8",
     "css-loader": "^0.23.1",
-    "eslint": "^2.12.0",
+    "eslint": "^3.0.1",
     "extract-text-webpack-plugin": "^1.0.1",
-    "html-webpack-plugin": "^2.21.0",
+    "html-webpack-plugin": "^2.22.0",
     "html-webpack-template": "^5.0.0",
+    "mocha": "^2.5.3",
     "node-sass": "^3.7.0",
-    "sass-loader": "^3.2.0",
+    "sass-loader": "^4.0.0",
     "standard": "^7.1.2",
     "style-loader": "^0.13.1",
-    "webpack": "^2.1.0-beta.13",
+    "webpack": "^2.1.0-beta.15",
     "webpack-bundle-size-analyzer": "^2.0.2",
     "webpack-dev-server": "^2.1.0-beta.0"
   },

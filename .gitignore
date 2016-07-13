@@ -18,3 +18,5 @@ node_modules
 
 # TSD Typings
 typings
+
+/lab

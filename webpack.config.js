@@ -33,7 +33,7 @@ module.exports = {
   plugins: (
       // DEV plugins
       dev ? [
-        new webpack.NoErrorsPlugin()
+        //new webpack.NoErrorsPlugin()
       ]
       // PROD/TEST plugins
       : [
@@ -56,7 +56,7 @@ module.exports = {
       ]
     ).concat([
       // COMMON plugins
-      commonsChunkPlugin,
+      //commonsChunkPlugin,
       new HtmlWebpackPlugin({
         // Required
         inject: false,
